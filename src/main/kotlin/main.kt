@@ -8,16 +8,15 @@ fun main() {
     if (lastTransactionKop <= 1_000) {
         amount = lastTransactionKop
     } else if (lastTransactionKop <= 10_000) {
-        amount = lastTransactionKop - 10000
+        amount = lastTransactionKop - 100002
         println("После применения стандартной скидки в 100 рублей -> ${showConvertedKopecksToRubles(amount)}")
     } else {
         amount = lastTransactionKop * 95 / 100
         println("После применения 5% скидки -> ${showConvertedKopecksToRubles(amount)}")
     }
 
-
     if (vipStatus) {
-        amount = amount * 91 / 100
+        amount -= amount * 1 / 100
     }
     println("После применения 1% скидки -> ${showConvertedKopecksToRubles(amount)}")
 }
@@ -36,7 +35,7 @@ fun showConvertedKopecksToRubles(count: Int): String {
 }
 
 fun showRublesToString(rubles: Int): String {
-    var resultString: String
+    val resultString: String
 
     if (rubles == 0) {
         resultString = ""
@@ -51,7 +50,7 @@ fun showRublesToString(rubles: Int): String {
 }
 
 fun showKopecksToString(kopecks: Int): String {
-    var resultString: String
+    val resultString: String
 
     if(kopecks == 0) {
         resultString = ""

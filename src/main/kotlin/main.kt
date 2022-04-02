@@ -54,9 +54,9 @@ fun showKopecksToString(kopecks: Int): String {
 
     if(kopecks == 0) {
         resultString = ""
-    } else if (kopecks == 1 || (kopecks % 10) == 1 && kopecks != 11) {
+    } else if (kopecks % 10 == 1 && kopecks != 11) {
         resultString = " $kopecks копейка"
-    } else if (kopecks % 10 >= 2 && kopecks % 10 <= 4) {
+    } else if (kopecks % 10 in 2..4 && kopecks > 20 || kopecks in 2..4) {
         resultString = " $kopecks копейки"
     } else {
         resultString = " $kopecks копеек"
